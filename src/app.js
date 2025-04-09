@@ -33,7 +33,7 @@ const doFamilyTask = async (cloudClient, logger) => {
     //指定家庭签到
     if (families.length > 0) {
       const tagetFamily = familyInfoResp.find((familyInfo) =>
-        families.includes(familyInfo.remarkName)
+        families.includes(familyInfo.remarkName.replace('的家',''))
       );
       if (tagetFamily) {
         familyId = tagetFamily.familyId;
