@@ -50,7 +50,7 @@ const doFamilyTask = async (cloudClient, logger) => {
     logger.info(`执行家庭签到ID:${familyId}`);
     const tasks = [ cloudClient.familyUserSign(familyId) ]
     const result = (await Promise.allSettled(tasks)).filter(
-      ({ status, value }) => status === "fulfilled" && !value.signStatus
+      ({ status, value }) => status === "fulfilled" && !value.signStatus && value.bonusSpace
     );
     return logger.info(
       `家庭签到任务: 获得 ${
